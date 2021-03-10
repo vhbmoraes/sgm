@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Prefeitura</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:inputHidden value="tcc" />
+		<p:panel>
+			<h:panelGrid columns="2">
+				<p:graphicImage url="img/logo.jpg" width="70px" height="70px" />
+				<h:outputText value="SGM - Sistema de Gestão Integrada Municipal" />
+			</h:panelGrid>
+		</p:panel>
+       <p:tieredMenu style="width:200px">
+	        <p:submenu label="MIMG">
+	            <p:menuitem value="Importar metadado - Agregado" url="#{principalBean.urlMimg}/mimg/metadado/metadado.xhtml?token=#{principalBean.retorna()}">
+	            </p:menuitem>
+	            <p:menuitem value="Importar resultado - Agregado" url="#{principalBean.urlMimg}/mimg/resultado/agregado.xhtml?token=#{principalBean.retorna()}" />
+	        </p:submenu>
+	        <p:separator />
+	        <p:submenu label="MSC">
+	            <p:menuitem value="Pesquisar IPTU - Cidadão" url="#{principalBean.urlMsc}/msc/iptu.xhtml?token=#{principalBean.retorna()}" />
+	        </p:submenu>
+	        <p:separator />
+	        <p:submenu label="Gestão de Projetos">
+	        	<p:menuitem value="Redmine" url="https://www.redmine.org/" />
+	        </p:submenu>
+	        <p:separator />
+	        <p:submenu label="Business Intelligence">
+	        	<p:menuitem value="Pentaho"  url="https://www.hitachivantara.com/en-us/products/data-management-analytics/pentaho.html" />
+	        </p:submenu>
+	        <p:separator />
+	        	<p:menuitem value="Sair" url="/sgm/index.xhtml" />
+	    </p:tieredMenu>
+	</h:form>
+</h:body>
+</html>

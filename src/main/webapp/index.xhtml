@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Prefeitura</title>
+	
+</h:head>
+<h:body>
+	<h:form>
+		<p:panel style="width: 600px; margin: 0 auto;">
+			<h:panelGrid columns="2">
+				<p:graphicImage url="img/logo.jpg" width="70px" height="70px" />
+				<h:outputText value="SGM - Sistema de Gestão Integrada Municipal" />
+			</h:panelGrid>
+		</p:panel>
+		<br />
+		<p:panel header="Acesso" style="width: 400px; margin: 0 auto;">
+			<h:panelGrid columns="2" cellpadding="10">
+				<p:outputLabel for="log" value="Login:" />
+				<h:panelGrid>
+					<p:inputText id="log" value="#{loginBean.login}" required="true" />
+					<p:message for="log" />
+				</h:panelGrid>
+					
+				<p:outputLabel for="pas" value="Senha:" />
+				<h:panelGrid>
+					<p:password id="pas" value="#{loginBean.senha}" required="true" />
+					<p:message for="pas" />
+				</h:panelGrid>
+					
+				<h:outputText />
+				<p:commandButton value="Entrar" actionListener="#{loginBean.validar}" update="@form"/>
+			</h:panelGrid>
+		</p:panel>
+		<br />
+	</h:form>
+	<h:form>
+		<p:remoteCommand name="onload" action="#{loginBean.deslogar}" autoRun="true" />
+	</h:form>
+</h:body>
+</html>
