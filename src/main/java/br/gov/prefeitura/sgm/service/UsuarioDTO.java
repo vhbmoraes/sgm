@@ -2,16 +2,18 @@ package br.gov.prefeitura.sgm.service;
 
 public enum UsuarioDTO {
 	
-	INVALIDO("Inválido", "", ""), 
-    TCC("tcc", "123", "dcbacadf485c141a2b9b0028f2c0b2e1"),
-	VICTOR("victor", "321", "ffc150a160d37e92012c196b6af4160d");
+	INVALIDO(0, "Inválido", "", ""), 
+    TCC(1, "tcc", "123", "dcbacadf485c141a2b9b0028f2c0b2e1"),
+	VICTOR(2, "victor", "321", "ffc150a160d37e92012c196b6af4160d");
 
+	private Integer id;
 	private String login;
 	private String senha;
 	private String token;
 
-    private UsuarioDTO(String login, String senha, String token)
+    private UsuarioDTO(Integer id, String login, String senha, String token)
     {
+    	this.id = id;
     	this.login = login;
     	this.senha = senha;
     	this.token = token;
@@ -37,7 +39,7 @@ public enum UsuarioDTO {
 
         for (UsuarioDTO item : UsuarioDTO.values())
         {
-            if (item.token.equals(token))
+            if (item.login.equals(token))
                 return item;
         }
         return INVALIDO;
@@ -53,5 +55,9 @@ public enum UsuarioDTO {
     
     public String getSenha() {
 		return senha;
+	}
+    
+    public Integer getId() {
+		return id;
 	}
 }
